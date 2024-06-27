@@ -10,7 +10,8 @@ const CoinContextProvider = (props) => {
     symbol: "$",
   });
 
-//   const API_KEY = process.env.VITE_APP_API_KEY;
+  //Redefine apikey
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   //FETCH COIN DATA FROM API
   const fetchAllCoin = async () => {
@@ -18,7 +19,7 @@ const CoinContextProvider = (props) => {
       method: "GET",
       headers: {
         accept: "application/json",
-        "x-cg-demo-api-key": 'CG-FMazjLYrE7yi5jGYunwchSRu',
+        "x-cg-demo-api-key": apiKey,
       },
     };
 
@@ -47,14 +48,3 @@ const CoinContextProvider = (props) => {
 };
 
 export default CoinContextProvider;
-
-
-// const options = {
-//     method: 'GET',
-//     headers: {accept: 'application/json', 'x-cg-demo-api-key': 'CG-FMazjLYrE7yi5jGYunwchSRu'}
-//   };
-  
-//   fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));
